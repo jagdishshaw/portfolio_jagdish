@@ -1,0 +1,46 @@
+body{margin:0}
+/* Layout: full-width kinetic hero, throwable skill pit, projects as live demos, education, contact. Deliberately dark only. */
+:root{color-scheme:dark;--bg:#0c0a1d;--card:#17142f;--ink:#f4f1ff;--mute:#aba6cf;--hot:#ff5c35;--vio:#8b6bff;--aqua:#35e0d0;
+--display:Syne,system-ui,sans-serif;--body:"Space Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);overflow-x:clip}
+.wrap{max-width:1040px;margin:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+h1,h2,h3{font-family:var(--display);line-height:1;margin:0}
+h2{font-size:clamp(2rem,7vw,3.8rem);margin-bottom:12px}h3{font-size:1.35rem;line-height:1.2}
+p{margin:10px 0}.mute{color:var(--mute)}
+a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+.bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;width:100%;height:4px;background:var(--hot);transform-origin:left;transform:scaleX(0);z-index:20}
+#cur{position:fixed;left:0;top:0;width:28px;height:28px;margin:-14px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:30;opacity:0;transition:width .2s,height .2s,margin .2s}
+#cur.big{width:80px;height:80px;margin:-40px}
+nav{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:22px;font-weight:600;position:relative;z-index:2}
+nav a{text-decoration:none;margin-left:16px}nav a:first-child{margin-left:0}
+header{position:relative;padding-block:70px 60px}
+#net{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+header>*:not(canvas){position:relative}
+h1{font-size:clamp(2.7rem,12.5vw,8.5rem);font-weight:800;text-transform:uppercase;user-select:none}
+h1 span{display:block}
+h1 b{display:inline-block;transition:transform .25s cubic-bezier(.3,1.8,.5,1),color .25s;animation:pop .9s cubic-bezier(.3,1.6,.5,1) backwards}
+h1 span+span{color:var(--vio)}
+@keyframes pop{from{translate:0 80px;rotate:25deg;opacity:0}}
+.role{font:400 1.1rem var(--mono);color:var(--aqua);min-height:1.6em}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--hot);color:#160803;font:600 1rem var(--body);padding:13px 24px;border-radius:99px;text-decoration:none;transition:transform .15s}
+.marq{margin-inline:-6px;background:var(--hot);color:#160803;font:800 1.5rem var(--display);white-space:nowrap;rotate:-2deg;padding:10px 0;overflow:hidden}
+.marq div{display:inline-block;animation:slide 22s linear infinite}@keyframes slide{to{transform:translateX(-50%)}}
+section{margin-top:100px;scroll-margin-top:20px}
+#pit{position:relative;height:360px;border:2px dashed var(--vio);border-radius:24px;overflow:hidden}
+.chip{position:absolute;left:0;top:0;padding:9px 17px;border-radius:99px;font-weight:600;background:var(--vio);color:#0c0a1d;white-space:nowrap;touch-action:none;cursor:grab;user-select:none}
+.chip:nth-child(3n){background:var(--aqua)}.chip:nth-child(3n+1){background:var(--hot)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
+.card{background:var(--card);border-radius:22px;padding:22px;min-width:0;transition:transform .15s ease-out}
+.demo{margin-top:16px;background:var(--bg);border-radius:14px;padding:14px;font:400 13px/1.8 var(--mono);height:170px;overflow:hidden}
+.demo small{display:block;color:var(--mute)}
+.demo input,.demo textarea{box-sizing:border-box;width:100%;background:var(--card);color:var(--ink);border:1px solid var(--vio);border-radius:8px;padding:8px;font:inherit;resize:none}
+.meter{height:10px;border-radius:9px;background:var(--card);margin-top:12px;overflow:hidden}.meter i{display:block;height:100%;width:0;transition:.4s}
+.demo .btn{padding:5px 16px;font-size:13px}
+.line{display:flex;justify-content:space-between;gap:8px;white-space:nowrap}
+.ok{color:var(--aqua)}.bad{color:var(--hot)}
+.wide{grid-column:1/-1}
+ol{list-style:none;padding:0;border-left:3px solid var(--vio)}ol li{padding:0 0 24px 20px}
+.mail{font:800 clamp(1.1rem,4.8vw,2.6rem) var(--display);overflow-wrap:anywhere;user-select:all}
+.js .rv{translate:0 50px;transition:translate .8s cubic-bezier(.3,1.5,.5,1)}.js .rv.in{translate:0 0}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .rv{translate:0}}
